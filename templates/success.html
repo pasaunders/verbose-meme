@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>emails</title>
+        <title>emails_success</title>
     </head>
     <body>
         {% with messages = get_flashed_messages() %}
@@ -11,9 +11,14 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-      <form action="/success" method="POST">
-        <label for="email">Email:<input type="text" name="email" id="email"></label>
-        <input type="submit" value="Add">
-      </form>
+        <h2>Email Addresses</h2>
+        <table>
+            {% for email in emails: %}
+                <tr>
+                    <td>{{ email['email'] }}</td>
+                    <td>{{ email['created'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </body>
 </html>

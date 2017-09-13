@@ -17,7 +17,7 @@ def index():
 
 @app.route('/friends', methods=['POST'])
 def create():
-    query = 'INSERT INTO friends (first_name, last_name, occupation, created_at, updated_at) VALUES (:first_name, :last_name, :occupaiton, NOW(), NOW())'
+    query = 'INSERT INTO friends (first_name, last_name, occupation, created_at, updated_at) VALUES (:first_name, :last_name, :occupation, NOW(), NOW())'
     data = {
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
@@ -27,10 +27,10 @@ def create():
     return redirect('/')
 
 
-@app.route('/update_friend/<friend_id>', methods-['POST'])
+@app.route('/update_friend/<friend_id>', methods=['POST'])
 def update(friend_id):
     query = 'UPDATE friends SET first_name = :first_name, last_name = :last_name, occupation = :occupation WHERE id = :id'
-        data = {
+    data = {
         'first_name': request.form['first_name'],
         'last_name': request.form['last_name'],
         'occupation': request.form['occupation'],
